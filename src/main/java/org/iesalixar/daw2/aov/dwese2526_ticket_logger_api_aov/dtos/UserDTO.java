@@ -1,0 +1,53 @@
+package org.iesalixar.daw2.aov.dwese2526_ticket_logger_api_aov.dtos;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.Set;
+
+/**
+ * DTO genérico de lectura para User.
+ * Se puede usar tanto para listados como para vistas de detalle simples.
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserDTO {
+
+
+    private Long id;
+
+
+    private String email;
+
+
+    private boolean active;
+
+
+    private boolean accountNonLocked;
+
+
+    private LocalDateTime lastPasswordChange;
+
+
+    private LocalDateTime passwordExpiresAt;
+
+
+    private Integer failedLoginAttempts;
+
+
+    private boolean emailVerified;
+
+
+    private boolean mustChangePassword;
+
+
+    // Roles asociados al usuario (nombres técnicos: ROLE_ADMIN, ROLE_USER, etc.)
+    private Set<String> roles;
+}
+
+
+
