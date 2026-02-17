@@ -18,6 +18,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
@@ -27,6 +28,8 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springdoc.core.annotations.ParameterObject;
+
 
 import java.net.URI;
 import java.util.Locale;
@@ -65,8 +68,10 @@ public class RegionController {
             ),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor")
     })
+
     @GetMapping
     public ResponseEntity<Page<RegionDTO>> listRegions(
+            @ParameterObject
             @PageableDefault(size = 10, sort = "name", direction = Sort.Direction.ASC)
             Pageable pageable) {
 
@@ -79,6 +84,7 @@ public class RegionController {
 
         return ResponseEntity.ok(page);
     }
+
 
     // =========================
     // CREAR REGIÓN
